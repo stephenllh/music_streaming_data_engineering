@@ -18,7 +18,7 @@ spark = create_session("Eventsim")
 spark.streams.resetTerminated()
 
 streams = []
-kafka_topics = ["listen_events", "page_view_events", "auth_events"]
+kafka_topics = ["listen_events"]
 
 for kafka_topic in kafka_topics:
     streams.append(read_stream(spark, KAFKA_IP_ADDRESS, KAFKA_PORT, kafka_topic))

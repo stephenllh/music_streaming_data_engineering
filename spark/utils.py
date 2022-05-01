@@ -14,10 +14,10 @@ def read_stream(spark, kafka_ip_address, kafka_port, kafka_topic):
     return (
         spark.readStream
         .format("kafka")
-        .option('kafka.bootstrap.servers', f'{kafka_ip_address}:{kafka_port}')
-        .option('failOnDataLoss', False)
-        .option('startingOffsets', 'earliest')
-        .option('subscribe', kafka_topic)
+        .option("kafka.bootstrap.servers", f"{kafka_ip_address}:{kafka_port}")
+        .option("failOnDataLoss", False)
+        .option("startingOffsets", "earliest")
+        .option("subscribe", kafka_topic)
         .load()
     )
 
