@@ -1,1 +1,4 @@
 logs/
+commands.txt
+__pycache__
+output/

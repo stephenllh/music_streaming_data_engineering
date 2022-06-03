@@ -51,7 +51,7 @@ resource "google_bigquery_dataset" "dataset" {
 
 resource "google_compute_firewall" "port_rules" {
   project     = local.project
-  name        = "kafka-broker-port"
+  name        = "kafka-broker-port2"
   network     = var.network
   description = "Opens port 9092 in the Kafka VM for Spark cluster to connect"
 

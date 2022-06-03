@@ -1,4 +1,4 @@
-cd ~/streamify/eventsim
+cd ~/music_streaming/eventsim
 
 echo "Building Eventsim Image..."
 docker build -t events:1.0 .
@@ -11,10 +11,10 @@ docker run -itd \
   --memory-swap="7g" \
   --oom-kill-disable \
   events:1.0 \
-    -c "examples/example-config.json" \
+    -c "config/example-config.json" \
     --start-time "`date +"%Y-%m-%dT%H:%M:%S"`" \
     --end-time "`date -d "+1 days" +"%Y-%m-%dT%H:%M:%S"`" \
-    --nusers 10000 \
+    --nusers 1000000 \
     --growth-rate 10 \
     --userid 1 \
     --kafkaBrokerList localhost:9092 \

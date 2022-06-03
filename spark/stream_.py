@@ -18,10 +18,12 @@ spark = create_session("Eventsim")
 spark.streams.resetTerminated()
 
 streams = []
-kafka_topics = ["listen_events"]
+kafka_topics = ["auth_events"]
 
 for kafka_topic in kafka_topics:
     streams.append(read_stream(spark, KAFKA_IP_ADDRESS, KAFKA_PORT, kafka_topic))
+
+print("ADFASDFASDFASDFASDFASDFASDF", streams[0])
 
 for stream, kafka_topic in zip(streams, kafka_topics):
     process_and_write_stream(
@@ -35,4 +37,4 @@ for stream, kafka_topic in zip(streams, kafka_topics):
         output_mode="append",
     )
 
-spark.streams.awaitAnyTermination()
+# spark.streams.awaitAnyTermination()

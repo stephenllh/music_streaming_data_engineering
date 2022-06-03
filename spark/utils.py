@@ -6,6 +6,7 @@ def create_session(app_name, master="yarn"):
     return (
         SparkSession.builder
         .appName(app_name)  # .master(master)
+        .master("local")
         .getOrCreate()
     )
 
@@ -50,7 +51,7 @@ def write_stream(stream, file_format, storage_path, checkpoint_path, trigger, ou
     return (
         stream.writeStream
         .format(file_format)
-        .partitionBy("month", "day", "hour")
+        #.partitionBy("month", "day", "hour")
         .option("path", storage_path)
         .option("checkpointLocation", checkpoint_path)
         .trigger(processingTime=trigger)
@@ -62,6 +63,7 @@ def process_and_write_stream(
     stream, stream_schema, topic_name, file_format, storage_path, checkpoint_path, trigger, output_mode
 ):
     stream = process_stream(stream, stream_schema, topic_name)
+    print("done process!!!!!!!!!!!!!!!!!!!!!!!")
     stream = write_stream(stream, file_format, storage_path, checkpoint_path, trigger, output_mode)
     stream.start()
 
