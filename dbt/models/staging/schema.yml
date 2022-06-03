@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+    - name: staging
+      description: For testing on one parquet file only
+      database: wise-obelisk-344012
+      schema: music_streaming_test
+      tables:
+        - name: listen_events
+        - name: page_view_events
+        - name: auth_events
+        - name: songs
+        - name: state_codes
