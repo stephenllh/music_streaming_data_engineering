@@ -4,7 +4,7 @@ streamify:
       dataset: streamify_stg
       fixed_retries: 1
       keyfile: /.google/credentials/google_credentials.json
-      location: us-central1
+      location: asia-southeast1-a
       method: service-account
       priority: interactive
       project: "{{ env_var('GCP_PROJECT_ID') }}"
@@ -15,7 +15,7 @@ streamify:
       dataset: streamify_prod
       fixed_retries: 1
       keyfile: /.google/credentials/google_credentials.json
-      location: us-central1
+      location: asia-southeast1-a
       method: service-account
       priority: interactive
       project: "{{ env_var('GCP_PROJECT_ID') }}"
